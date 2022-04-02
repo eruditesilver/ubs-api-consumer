@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFetchUsers from "../hooks/useFetchUsers";
-export function Home() {
+export function Home(): React.ReactElement {
   const { error, users, isLoading } = useFetchUsers();
 
   if (error) {
@@ -24,5 +24,5 @@ export function Home() {
       </ul>
     );
   }
-};
+}
 export default Home;
