@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFetchUsers from "../hooks/useFetchUsers";
+import "../styles/UserList.css";
 export function Home(): React.ReactElement {
   const { error, users, isLoading } = useFetchUsers();
 
@@ -10,18 +11,18 @@ export function Home(): React.ReactElement {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
+      <div className="container">
         {users.map((user) => (
-          <li key={user.id} data-testid={`home-users-${user.id}`}>
+          <div key={user.id} data-testid={`home-users-${user.id}`} className="card">
             <Link
               data-testid={`home-users-link-${user.id}`}
               to={`user/${user.id}`}
             >
               {user.name}
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 }
